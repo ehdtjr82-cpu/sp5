@@ -1,0 +1,21 @@
+# 빌드 결과물 제외
+/target/
+*.war
+*.ear
+*.jar
+
+# 이클립스 내부 설정 파일 제외
+/.settings/
+/.project
+/.classpath
+/.metadata/
+
+# 톰캣 서버 설정 제외
+/Servers/
+
+# 로그 및 찌꺼기 파일
+*.log
+
+#wpack 제외
+/**/src/main/webapp/_wpack_/
+_wpack_/
