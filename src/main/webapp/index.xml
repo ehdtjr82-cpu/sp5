@@ -15,6 +15,10 @@
         <script lazy="false" type="text/javascript"><![CDATA[
 scwin.onpageload = function() {
 	
+
+
+
+    
 };
 ]]></script>
     </head>
@@ -33,7 +37,7 @@ scwin.onpageload = function() {
     				</xf:group>
     				<xf:group class="" id="" style="" tagname="tr">
     					<xf:group class="w2tb_th" style="" tagname="th">
-    						<w2:textbox class="" id="" label="조회조건" style=""></w2:textbox>
+    						<w2:textbox class="" id="" label="조회조건111111111111" style=""></w2:textbox>
     					</xf:group>
     					<xf:group class="w2tb_td" style="" tagname="td">
     						<xf:select1 allOption="true" appearance="minimal" chooseOption="" class="" direction="auto" disabled="false"
