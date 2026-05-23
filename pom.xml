@@ -25,7 +25,7 @@
 	</properties>
 
 	<dependencies>
-		
+
 		<!-- Spring Web MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -112,10 +112,10 @@
 
 		<!-- if JDK11 then insert 'javax.annotation-api'' -->
 		<dependency>
-		    <groupId>javax.annotation</groupId>
-		    <artifactId>javax.annotation-api</artifactId>
-		    <version>1.3.2</version>
-		    <scope>provided</scope>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- jackson -->
@@ -141,7 +141,7 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>2.0.3</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -285,28 +285,47 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Central Maven Repository에 등록되지 않는 수동 등록 라이브러리 =============================== -->
+		<!-- Central Maven Repository에 등록되지 않는 수동 등록 라이브러리
+		=============================== -->
 		<dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>batik-all</artifactId>
 			<version>1.7.1-20150510</version>
 			<scope>runtime</scope>
-		</dependency>	
-		<dependency>
-			<groupId>websquare</groupId>
-			<artifactId>websquare</artifactId> 
-			<version>ai_6.0_0.1091B.20240612.144954_1.5</version>
-		</dependency>		
+		</dependency>
+
+		<!--		<dependency>-->
+		<!--			<groupId>websquare</groupId>-->
+		<!--			<artifactId>websquare</artifactId> -->
+		<!--			<version>ai_6.0_0.1091B.20240612.144954_1.5</version>-->
+		<!--		</dependency>	-->
+
 	</dependencies>
 
 	<build>
 		<finalName>sp5</finalName>
+		<!-- 💡 1. 실제 빌드 시점에 플러그인들이 작동하도록 설정하는 영역 -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source> <!-- 프로젝트 자바 버전에 맞게 수정 가능 -->
+					<target>1.8</target>
+					<!-- 💡 -extdirs 설정을 올바른 플러그인(compiler) 내부로 이동시켰습니다 -->
+					<compilerArgument>-extdirs ${project.basedir}/src/main/webapp/WEB-INF/lib</compilerArgument>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<!-- 2. 플러그인 버전 고정 관리 영역 -->
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven
 			defaults (may be moved to parent pom) -->
 			<plugins>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>3.4.0</version>
+					<!-- 💡 기존에 잘못 들어가 있던 configuration 태그를 청소했습니다 -->
 				</plugin>
 				<!-- see
 				http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
