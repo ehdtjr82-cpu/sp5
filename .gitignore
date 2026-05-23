@@ -2,7 +2,6 @@
 /target/
 *.war
 *.ear
-*.jar
 
 # 이클립스 내부 설정 파일 제외
 /.settings/
